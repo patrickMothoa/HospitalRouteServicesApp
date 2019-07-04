@@ -1,0 +1,18 @@
+<h3 style="text-align:center;">Patient Personal information..</h3>
+
+<mat-card style="background-color: burlywood" >  
+
+     <ul *ngIf="id;">
+         <p>
+           Patient Id : {{id}} <br>
+           Patient Name: {{Patientz.name}} <br>
+           Patient Surname :{{Patientz.surname}} <br>
+           Patient Age: {{Patientz.age}}
+           
+         </p>   
+     </ul>
+</mat-card>
+
+     
+
+<button routerLink="/admin" style="margin-right:200px" mat-raised-button color="primary"> Back </button>

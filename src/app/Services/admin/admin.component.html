@@ -1,0 +1,35 @@
+
+<div>
+
+<mat-card>
+    <h3>  <img width="300" alt="Logo" src="assets\admin.png"> </h3>
+    Patient Name :<mat-form-field>
+        <input matInput placeholder="enter name" [(ngModel)]= "name" required>
+    </mat-form-field><br>
+    Patient Surname :<mat-form-field>
+            <input matInput placeholder="enter surname" [(ngModel)]= "surname" required>
+    </mat-form-field><br>
+    Patient Age : <mat-form-field>
+            <input matInput #input maxlength="3" placeholder="anter age" [(ngModel)]= "age" required>
+     </mat-form-field><br>
+     Patient ID :<mat-form-field>
+            <input matInput  #input maxlength="13" placeholder="enter id" [(ngModel)]= "id" required> 
+        </mat-form-field><br>
+        <button mat-raised-button color="primary" (click) = "add(name, surname, age, id)" >Submit</button>
+</mat-card>
+</div>
+<div>
+    <h2> TembisaHospital Patients Files </h2>
+<mat-card style="background-color: burlywood" >  
+
+    <ul *ngFor="let view of Patientz; index as id ">
+            {{view.name}}
+            {{view.surname}}
+            {{view.age}}
+            {{view.id}}
+            <button mat-raised-button color="primary"  [routerLink] = "['/patientdetails',view.id]" > Patient File</button>
+    </ul>
+    </mat-card>
+</div>
+  
+<form> </form>

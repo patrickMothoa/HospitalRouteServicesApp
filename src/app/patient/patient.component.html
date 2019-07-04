@@ -1,0 +1,13 @@
+<div>
+        <h2> Patients Appointment </h2>
+    <mat-card style="background-color: burlywood" >  
+    
+        <p *ngFor="let views of Patientz">
+                {{views.name}} 
+                {{views.surname}}
+                {{views.age}} 
+                {{views.id}} 
+                <button mat-raised-button color="primary"  [routerLink] = "['/patientAppointment',view.id]" > Appointments</button>
+        </p>
+    </mat-card>
+</div>

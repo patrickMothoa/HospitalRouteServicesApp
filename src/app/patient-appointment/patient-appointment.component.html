@@ -1,0 +1,32 @@
+     <div>
+        <mat-card>
+            <h3>  <img width="100" alt="Logo" src="assets\app.jpg"> </h3>
+            Appointment Date :<mat-form-field>
+                <input matInput type="date" [(ngModel)]= "Date" required>
+            </mat-form-field><br>
+            Reason :<mat-form-field>
+                    <input matInput placeholder="enter reason" [(ngModel)]= "reason" required>
+            </mat-form-field><br>
+
+            Doctor's Name :<mat-form-field>
+                    <select matNativeControl required>
+                      <option value="select">-- select -- </option>
+                      <option value="bafhui">Bafhui</option>
+                      <option value="ramasha">Ramasha</option>
+                      <option value="mokondeleni">Mokondeleni</option>
+                      <option value="koos">Koos</option>
+                    </select>
+            </mat-form-field>
+            <br><button mat-raised-button color="primary" (click)="addAppt(Date, reason, doctor)" >Submit</button>
+        </mat-card>
+        
+        <mat-card>
+                <ul *ngFor="let views of Patientz">
+                        {{views.Date}}
+                        {{views.reason}}
+                        {{views.doctor}}
+                        <button mat-raised-button color="primary"  routerLink = "/patient" > Cancel</button>
+                </ul>
+        </mat-card>
+       
+        </div>

@@ -1,0 +1,14 @@
+button:hover, a:active{
+    color: rgb(89, 235, 21);
+}
+mat-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    width: 100%;
+  }
+#main{
+    background-color: rgb(16, 120, 161);
+    height: 210px;
+    border-bottom: solid black 4px;
+}

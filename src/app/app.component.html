@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="main">
+      <h1> 
+          <button  mat-icon-button [matMenuTriggerFor]="menu" aria-expanded="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/admin">
+                 <mat-icon>adding</mat-icon>
+                  <span> Register Patient</span>
+            </button>
+            <button mat-menu-item routerLink="/patientdetails/:id">
+                  <mat-icon>visibility</mat-icon>
+                   <span> View Patient </span>
+            </button>
+            <button mat-menu-item routerLink="/patientAppointment">
+              <mat-icon>delete</mat-icon>
+              <span>deleted Files</span>
+            </button>
+              <button mat-menu-item disabled>
+                <mat-icon>settings</mat-icon>
+                <span>Setting</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>contacts</mat-icon>
+             <span>Contacts</span>
+                </button>
+          </mat-menu>
+
+    <img style = "border-radius: 50%;" width="100" height="100" alt="Angular Logo" src="assets\tembisa.png">{{ title }}.
+  </h1>
+  <p>  <button routerLink="/admin" style="margin-right:100px" mat-raised-button color="primary"> Administration </button><button routerLink="/patient" style="margin-right:100px" mat-raised-button color="primary"> Patient</button>
+    <button style="margin-right:100px" mat-raised-button color="primary"> Doctor</button>
+    <mat-form-field>   
+      <button routerLink="/patientdetails" mat-menu-item>
+        <mat-icon>search </mat-icon>
+         <span> <input  matInput > </span> 
+      </button>
+    </mat-form-field>
+
+  </p>
+</div>
+
+
+<router-outlet></router-outlet>
