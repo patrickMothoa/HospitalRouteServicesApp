@@ -40,7 +40,9 @@ import { PatientAppointmentComponent } from './patient-appointment/patient-appoi
     MatSortModule,
     RouterModule.forRoot([
       {path: '', component: AdminComponent},
-      {path: 'patientdetails/:id', component: PatientdetailsComponent}
+      {path: 'patientdetails/:id', component: PatientdetailsComponent},
+      {path: '', component:PatientComponent},
+      {path: 'patientAppointment/:id', component:PatientAppointmentComponent}
     ])
 
   ],

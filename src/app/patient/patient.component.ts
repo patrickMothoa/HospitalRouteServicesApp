@@ -13,9 +13,9 @@ export class PatientComponent implements OnInit {
      this.Patientz = this.servicess.getPatient();
    }
 
-  //  add(name, surname, age, id){
-  //    this.servicess.add(name, surname, age, id);
-  //  }
+   EditPat(Listedpatients){
+     this.servicess.EditPat(Listedpatients);
+   }
 
   ngOnInit() {
   }

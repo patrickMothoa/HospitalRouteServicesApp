@@ -8,7 +8,7 @@ import { PatientAppointmentComponent } from './patient-appointment/patient-appoi
 const routes: Routes = [{ path: 'admin', component: AdminComponent},
 {path: 'patientdetails/:id', component: PatientdetailsComponent},
 {path: 'patient', component: PatientComponent},
-{path: 'patientAppointment', component: PatientAppointmentComponent}];
+{path: 'patientAppointment/:id', component: PatientAppointmentComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

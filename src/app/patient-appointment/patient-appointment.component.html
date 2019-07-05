@@ -9,8 +9,7 @@
             </mat-form-field><br>
 
             Doctor's Name :<mat-form-field>
-                    <select matNativeControl required>
-                      <option value="select">-- select -- </option>
+                    <select matNativeControl placeholder="select doctor" [(ngModel)]="doctor" required> 
                       <option value="bafhui">Bafhui</option>
                       <option value="ramasha">Ramasha</option>
                       <option value="mokondeleni">Mokondeleni</option>
@@ -19,14 +18,41 @@
             </mat-form-field>
             <br><button mat-raised-button color="primary" (click)="addAppt(Date, reason, doctor)" >Submit</button>
         </mat-card>
-        
-        <mat-card>
-                <ul *ngFor="let views of Patientz">
-                        {{views.Date}}
-                        {{views.reason}}
-                        {{views.doctor}}
-                        <button mat-raised-button color="primary"  routerLink = "/patient" > Cancel</button>
-                </ul>
+     </div>
+     <div>
+                <h2 style="text-align: center;">Appointment Information.</h2>
+        <mat-card style="background-color: rgb(140, 200, 240)">
+            
+                
+                <table matSort (matSortChange)="sortData($event)">
+                                <tr id="top">
+                                  <th >Patient fullnames</th>
+                                  <th ></th>
+                                </tr>
+
+                               
+                              
+                                <tr *ngIf="id;">
+                                  <td>{{PatientA.name}} _ {{PatientA.surname}}</td>
+                                  <td><button mat-mini-fab style="background-color: rgb(10, 136, 185)"  routerLink= '/patient' > <mat-icon >close</mat-icon></button></td>
+                                </tr>
+                </table>
+
+                                    <table matSort (matSortChange)="sortData($event)">
+                                            <tr id="top">
+                                                <th>Appointment date</th>
+                                                <th> Reason </th>
+                                                <th> Doctor</th>
+                                                <th></th>
+                                             </tr>
+
+                                             <tr *ngFor="let set of SetApp">
+                                                        <td>{{set.Date}}</td>
+                                                        <td>{{set.reason}}</td>
+                                                        <td>{{set.doctor}}</td>
+                                                 <button mat-raised-button color="primary"  (click) = "delete(Appoint)" > Cancel</button>
+                                            </tr>
+                                  </table> 
+                
         </mat-card>
-       
         </div>

@@ -5,14 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class HospitalService {
   
-  PatientList = [{name: 'fana', surname: 'moore', age: '45', id:4505021542208},
-                  {name: 'john', surname: 'Doe', age: '61', id:6105021542208},
-                  {name: 'pat', surname: 'Nicer', age: '27', id:9205021542208}];
+  PatientList = [{name: 'Fana', surname: 'Mothoa', age: '45', id:4505021542208},
+                  {name: 'John', surname: 'Doe', age: '61', id:6105021542208},
+                  {name: 'Pat', surname: 'Nicer', age: '27', id:9205021542208}];
 
   MyPatient = []
 
   Appointmentz = [];
-  emptyAppointment = true;
+  // emptyAppointment = true;
 
     name : string = "";
     surname: string = "";
@@ -41,7 +41,9 @@ export class HospitalService {
         this.reason="";
         this.doctor = "";
 
-        this.emptyAppointment = false;
+      //  if(this.addAppt.length > 0){
+      //   this.emptyAppointment = false;
+      //  } 
      }
 
     remove(patList){
@@ -63,8 +65,22 @@ export class HospitalService {
       return this.PatientList;
     }
 
+    //code for added new array
   getAppointment(){
       return this.Appointmentz;
+  }
+
+  delete(Appoint){
+    let index = this.Appointmentz.indexOf(Appoint)
+    this.Appointmentz.splice(index, 1);
+     
+  }
+
+  EditPat(Listedpatients){
+    let index = this.PatientList.indexOf(Listedpatients)
+    this.PatientList[index].name = prompt("Edit name:");
+    this.PatientList[index].surname = prompt("Edit surname:");
+    this.PatientList[index].age = prompt("Edit age:")
   }
 
   constructor() { }

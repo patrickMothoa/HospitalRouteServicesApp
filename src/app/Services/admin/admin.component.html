@@ -2,7 +2,7 @@
 <div>
 
 <mat-card>
-    <h3>  <img width="300" alt="Logo" src="assets\admin.png"> </h3>
+    <h3>  <img width="150" alt="Logo" src="assets\admin.png"> </h3>
     Patient Name :<mat-form-field>
         <input matInput placeholder="enter name" [(ngModel)]= "name" required>
     </mat-form-field><br>
@@ -19,16 +19,26 @@
 </mat-card>
 </div>
 <div>
-    <h2> TembisaHospital Patients Files </h2>
-<mat-card style="background-color: burlywood" >  
+    <h2 style="text-align: center;"> Tembisahospital Patients Files </h2>
+<mat-card style="background-color: rgb(140, 200, 240)" >  
 
-    <ul *ngFor="let view of Patientz; index as id ">
-            {{view.name}}
-            {{view.surname}}
-            {{view.age}}
-            {{view.id}}
-            <button mat-raised-button color="primary"  [routerLink] = "['/patientdetails',view.id]" > Patient File</button>
-    </ul>
+    <table matSort (matSortChange)="sortData($event)">
+            <tr id="top">
+              <th> Name</th>
+              <th> Surname</th>
+              <th>Age</th>
+              <th>Identity</th>
+              <th></th>
+            </tr>
+          
+            <tr *ngFor="let view of Patientz; index as id ">
+              <td>{{view.name}}</td>
+              <td>{{view.surname}}</td>
+              <td>{{view.age}}</td>
+              <td> {{view.id}}</td>
+              <td><button mat-raised-button color="primary"  [routerLink] = "['/patientdetails',view.id]" > Patient File</button></td>
+            </tr>
+          </table>
     </mat-card>
 </div>
   
