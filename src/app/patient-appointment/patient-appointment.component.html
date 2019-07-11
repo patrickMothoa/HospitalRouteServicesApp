@@ -1,58 +1,67 @@
      <div>
         <mat-card>
             <h3>  <img width="100" alt="Logo" src="assets\app.jpg"> </h3>
+            Patient Identity :<mat-form-field>
+                        <input matInput  [(ngModel)]= "id" required>
+                    </mat-form-field><br>
+            Doctor Identity :<mat-form-field>
+                <input matInput  [(ngModel)]= "doctor" required>
+                    </mat-form-field><br>
             Appointment Date :<mat-form-field>
                 <input matInput type="date" [(ngModel)]= "Date" required>
             </mat-form-field><br>
             Reason :<mat-form-field>
                     <input matInput placeholder="enter reason" [(ngModel)]= "reason" required>
-            </mat-form-field><br>
-
-            Doctor's Name :<mat-form-field>
-                    <select matNativeControl placeholder="select doctor" [(ngModel)]="doctor" required> 
-                      <option value="bafhui">Bafhui</option>
-                      <option value="ramasha">Ramasha</option>
-                      <option value="mokondeleni">Mokondeleni</option>
-                      <option value="koos">Koos</option>
-                    </select>
             </mat-form-field>
-            <br><button mat-raised-button color="primary" (click)="addAppt(Date, reason, doctor)" >Submit</button>
+            <br><button mat-raised-button color="primary" (click)="addAppt(id, doctor, Date, reason)" >Submit</button>
+                                                 
         </mat-card>
      </div>
      <div>
-                <h2 style="text-align: center;">Appointment Information.</h2>
-        <mat-card style="background-color: rgb(140, 200, 240)">
-            
                 
-                <table matSort (matSortChange)="sortData($event)">
-                                <tr id="top">
-                                  <th >Patient fullnames</th>
-                                  <th ></th>
-                                </tr>
+                <h2 style="text-align: center;">Appointment Information.</h2><br>
+                <button style="background-color: rgb(10, 136, 185)"  routerLink= '/patient' > Back </button>
 
-                               
-                              
-                                <tr *ngIf="id;">
-                                  <td>{{PatientA.name}} _ {{PatientA.surname}}</td>
-                                  <td><button mat-mini-fab style="background-color: rgb(10, 136, 185)"  routerLink= '/patient' > <mat-icon >close</mat-icon></button></td>
-                                </tr>
-                </table>
+        <mat-card style="background-color: rgb(140, 200, 240)">
 
                                     <table matSort (matSortChange)="sortData($event)">
-                                            <tr id="top">
+                                            <!-- <tr id="top">
+                                                <th>Patient Id</th>
+                                                <th> Doctor Id</th>
                                                 <th>Appointment date</th>
                                                 <th> Reason </th>
-                                                <th> Doctor</th>
                                                 <th></th>
-                                             </tr>
+                                             </tr> -->
 
-                                             <tr *ngFor="let set of SetApp">
-                                                        <td>{{set.Date}}</td>
-                                                        <td>{{set.reason}}</td>
-                                                        <td>{{set.doctor}}</td>
-                                                 <button mat-raised-button color="primary"  (click) = "delete(Appoint)" > Cancel</button>
-                                            </tr>
-                                  </table> 
-                
+                                             <tr *ngFor="let setter of SetApp">
+                                                        <td>{{setter.id}}</td>
+                                                        <td>{{setter.doctorz}}</td>
+                                                        <td>{{setter.Datez}}</td>
+                                                        <td>{{setter.reasonz}}</td>
+                                                 <td><button mat-raised-button color="primary"  (click) = "delete(Appoint)" > <mat-icon >delete</mat-icon></button> </td>                                                                              
+                                               </tr>
+                                  </table>
+                                  <!-- <div *ngIf = "!emptyAppointment">
+                                        <p style="background-color: greenyellow">
+                                             No Appointment..
+                                        </p>
+                                </div> -->  
+
+<h3 style="text-align:center;">Doctor Appointments information..</h3>
+
+<mat-card style="background-color: burlywood" >  
+
+     <ul *ngIf="id;">
+         <p>
+           Doctor Id : {{id}} <br>
+           Doctor Id : {{id}} <br>
+           Doctor Name: {{Patientz.name}} <br>
+           Doctor Surname :{{Patientz.surname}} <br>
+           Patient Age: {{Patientz.age}}
+           
+         </p>   
+     </ul>
+</mat-card>
+                                
         </mat-card>
-        </div>
+  </div>

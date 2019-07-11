@@ -1,0 +1,48 @@
+
+<div>
+        <mat-card>
+            <h3>  <img width="100" alt="Logo" src="assets\doc.png"> </h3>
+            Doctor Identity :<mat-form-field>
+                        <input matInput  [(ngModel)]= "DoctorId" required>
+                    </mat-form-field><br>
+            Doctor Name :<mat-form-field>
+                <input matInput [(ngModel)]= "Docname" required>
+            </mat-form-field><br>
+            Doctor Surname :<mat-form-field>
+                    <input matInput [(ngModel)]= "DocSurname" required>
+                </mat-form-field><br>
+            Specialisation :<mat-form-field>
+                    <input matInput [(ngModel)]= "Specialisation" required>
+            </mat-form-field>
+            <br><button mat-raised-button color="primary" (click)="addDoc(DoctorId,Docname,DocSurname,Specialisation )" >Submit</button>
+                                                 
+        </mat-card>
+     </div>
+     <div>
+            <h2 style="text-align: center"> Patients Files. </h2>
+        <mat-card style="background-color: rgb(140, 200, 240)" >  
+    
+            <table matSort (matSortChange)="sortData($event)">
+                    <tr id="top">
+                      <th>Doctor Identity</th>
+                      <th >Dr Name</th>
+                      <th >Dr Surname</th>
+                      <th >Identity</th>
+                      <th ></th>
+                      <th ></th>
+                    </tr>
+                  
+                    <tr *ngFor="let see of Doctorz; index as DoctorId">
+                      <td>{{see.DoctorId}} </td>
+                      <td>{{see.Docname}}</td>
+                      <td>{{see.DocSurname}} </td>
+                      <td>{{see.Specialisation}} </td>
+                      <td><button mat-raised-button style="background-color: rgb(53, 122, 143)" (click)="EditDoc(ListedDocs)"> Edit</button></td>
+                      <td><button mat-raised-button style="background-color: rgb(53, 122, 143)"  [routerLink] = "['/patientAppointment',see.DoctorId]" > Doctor Appointment</button></td>
+                                                                                                       
+                    </tr>
+                  </table>
+          
+        </mat-card>
+       
+    </div>

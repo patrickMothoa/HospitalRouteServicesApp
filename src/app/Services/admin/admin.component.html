@@ -2,21 +2,48 @@
 <div>
 
 <mat-card>
+    <form [formGroup]="angForm" novalidate>
     <h3>  <img width="150" alt="Logo" src="assets\admin.png"> </h3>
     Patient Name :<mat-form-field>
-        <input matInput placeholder="enter name" [(ngModel)]= "name" required>
-    </mat-form-field><br>
+        <input matInput placeholder="enter name" formControlName="name" [(ngModel)]= "name" required>
+    </mat-form-field>
+    <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+         <span style="color: red" > name is required. </span>
+        </div>
+    </div>
+    <br>
     Patient Surname :<mat-form-field>
-            <input matInput placeholder="enter surname" [(ngModel)]= "surname" required>
-    </mat-form-field><br>
+            <input matInput placeholder="enter surname" formControlName="surname" [(ngModel)]= "surname" required>
+    </mat-form-field>
+    <div *ngIf="angForm.controls['surname'].invalid && (angForm.controls['surname'].dirty || angForm.controls['surname'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['surname'].errors.required">
+            <span style="color: red" >surname is required. </span>
+        </div>
+    </div>
+    <br>
     Patient Age : <mat-form-field>
-            <input matInput #input maxlength="3" placeholder="anter age" [(ngModel)]= "age" required>
-     </mat-form-field><br>
+            <input matInput #input maxlength="3" placeholder="anter age" formControlName="age" [(ngModel)]= "age" required>
+     </mat-form-field>
+     <div *ngIf="angForm.controls['age'].invalid && (angForm.controls['age'].dirty || angForm.controls['age'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['age'].errors.required">
+            <span style="color: red" >age is required. </span>
+        </div>
+    </div>
+     <br>
      Patient ID :<mat-form-field>
-            <input matInput  #input maxlength="13" placeholder="enter id" [(ngModel)]= "id" required> 
-        </mat-form-field><br>
+            <input matInput  #input maxlength="13" placeholder="enter id" formControlName="id" [(ngModel)]= "id" required> 
+        </mat-form-field>
+        <div *ngIf="angForm.controls['id'].invalid && (angForm.controls['id'].dirty || angForm.controls['id'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['id'].errors.required">
+                <span style="color: red" >id is required.</span>
+            </div>
+        </div>
+        <br>
         <button mat-raised-button color="primary" (click) = "add(name, surname, age, id)" >Submit</button>
-</mat-card>
+        </form>
+
+      </mat-card>
 </div>
 <div>
     <h2 style="text-align: center;"> Tembisahospital Patients Files </h2>
